@@ -1,17 +1,124 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
   <head>
-    <title>Front End Test - Greenthumb</title>
+    <title>Green Friend</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./index.scss" />
+    <link rel="stylesheet" href="./styles/index.scss" />
+    <link rel="stylesheet" href="./styles/header.scss" />
+    <link rel="stylesheet" href="./styles/filters.scss" />
+    <link rel="stylesheet" href="./styles/result.scss" />
+    <script type="module" src="./index.js"></script>
   </head>
 
   <body>
-    <img src="images/icons/logo-white.svg" alt="Greenthumb" />
+    <div id="header">
+      <img src="images/icons/logo-white.svg" id="greenthumb-logo" />
+      <img
+        src="images/hero/desktop/left-leaves.png"
+        id="left-leaves"
+        class="desktop-only"
+      />
+      <img
+        src="images/hero/desktop/plantperson.png"
+        id="plantperson"
+        class="desktop-only"
+      />
+      <img
+        src="images/hero/desktop/right-leaves.png"
+        id="right-leaves"
+        class="desktop-only"
+      />
+      <img
+        src="images/hero/mobile/mobile-leaves.png"
+        id="mobile-leaves"
+        class="mobile-only"
+      />
+      <img
+        src="images/hero/mobile/mobile-plantperson.png"
+        id="mobile-plantperson"
+        class="mobile-only"
+      />
+      <img
+        src="images/icons/arrow-down.svg"
+        id="arrow-down"
+        onclick="scrollInto()"
+      />
+      <span id="header-phrase">Find your next green friend</span>
+    </div>
+    <div id="filters" class="filters" >
+      <div class="filter-box">
+        <img src="images/illustrations/sun.png" alt="Sun using sunglasses" />
+        <p>
+          <b>1.</b> Set the amount of <strong>sunlight</strong> <br />
+          your plant will get.
+        </p>
+        <select id="sun-select" onchange="changeFilters()">
+          <option value="" selected>Select...</option>
+          <option value="no">No sunlight</option>
+          <option value="low">Some sunlight</option>
+          <option value="high">A lot of sunlight</option>
+        </select>
+      </div>
+      <div class="filter-box">
+        <img
+          src="images/illustrations/wateringcan.png"
+          alt="Watering can"
+          style="transform: rotateY(180deg)"
+        />
+        <p>
+          <b>2.</b> How often do you want to <br /><strong>water</strong> your
+          plant?
+        </p>
+        <select id="water-select" onchange="changeFilters()">
+          <option value="" selected>Select...</option>
+          <option value="daily">Daily</option>
+          <option value="regularly">Regularly</option>
+          <option value="rarely">Rarely</option>
+        </select>
+      </div>
+      <div class="filter-box">
+        <img src="images/illustrations/dog.png" alt="Dog head" />
+        <p>
+          <b>3.</b> Do you have pets? Do<br />
+          they <strong>chew</strong> plants?
+        </p>
+        <select id="pets-select" onchange="changeFilters()">
+          <option value="" selected>Select...</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+    </div>
+    <div id="results">
+      <div id="no-results-box">
+        <span>No results yet...</span>
+        <span
+          >Use the filters above to find the plant that best fits your
+          environment :)</span
+        >
+        <img
+          src="images/illustrations/no-results.png"
+          alt="Vase with question mark"
+        />
+      </div>
+      <div id="results-box">
+        <img
+          src="images/illustrations/pick.png"
+          alt="Hand holding a plant branch"
+          id="plant-hand"
+        />
+        <span>Our picks for you</span>
+        <div id="plant-display"></div>
+        <button id="back-to-top" onclick="scrollInto()">
+          <img src="images/icons/arrow-up.svg" alt="" />
+          <span>back to the top click</span>
+        </button>
+      </div>
+    </div>
   </body>
 </html>
