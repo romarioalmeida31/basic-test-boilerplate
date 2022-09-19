@@ -1,6 +1,4 @@
-# basic-test-boilerplate-2
-Aqui você encontrará um boilerplate simples, que será disponibilizado para os candidatos do processo de front da Redventures Brasil.
----
+
 
 ## Como rodar localmente
 
